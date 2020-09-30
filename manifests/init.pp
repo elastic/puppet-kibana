@@ -34,12 +34,12 @@ class kibana (
   Kibana::Status $status,
 ) {
 
-  contain ::kibana::install
-  contain ::kibana::config
-  contain ::kibana::service
+  contain kibana::install
+  contain kibana::config
+  contain kibana::service
 
   if $manage_repo {
-    contain ::elastic_stack::repo
+    contain elastic_stack::repo
 
     Class['::elastic_stack::repo']
     -> Class['::kibana::install']

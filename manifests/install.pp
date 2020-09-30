@@ -7,7 +7,7 @@ class kibana::install {
 
   if $::kibana::manage_repo {
     if $facts['os']['family'] == 'Debian' {
-      include ::apt
+      include apt
       Class['apt::update'] -> Package['kibana']
     }
   }
